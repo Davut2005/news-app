@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query"
 import { Data, fetchNews, News } from "./services/fetchingNews";
-import './styles/app.scss'
-import NavBar from "./NavBar";
+import './styles/newsList.scss';
 
-const NewsList = () => {
+interface SingleNews {
+  changeIsSingleNews: ( news: News ) => void;
+}
+
+const NewsList = ({ changeIsSingleNews }: SingleNews) => {
 
   const { data, isLoading, isError } = useQuery<Data>( {
     queryKey: ['news'],
@@ -12,27 +15,25 @@ const NewsList = () => {
 
 
   return (
-    <div key={1}>
-      <NavBar totalNews={data?.totalResults} />  
+    <div key={1}> 
       <div className="news-container">
       { data?.articles.map( (news: News) => {
-        console.log(news);
+
+        if ( ![10,15,17].includes( data?.articles.indexOf(news) ))
         
         return (
-            <>  
+              
               <div className="news-card" key={data.articles.indexOf(news)}>
                 <img
                   src={news.urlToImage}
                   alt="not found" 
                   className="news-img"
                 />
-                <div className="news-title">
-                  <h4> 
-                    {news.author} + {news.publishedAt}
-                  </h4>
-                </div>
+                <button onClick={() => changeIsSingleNews(news)} className="news-title">
+                  <p> {news.author?.split(' ').slice(0,2).join(' ')} </p>
+                  <p> {news.publishedAt} </p>         
+                </button>
               </div>             
-            </>
         )})}
       </div>
     </div>

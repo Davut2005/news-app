@@ -1,0 +1,44 @@
+@use 'mixins';
+
+.news-navbar{
+    @include mixins.flex();
+    height: 20%;
+    margin-top: 2%;
+    margin-left: 2%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .header {
+        font-family: 'Merriweather', serif;
+        font-weight: 900;
+        font-size: 2.2em;
+        letter-spacing: 0.02em;
+        margin-right: 1.5%;
+        @include mixins.button();
+        border-radius: 22.5px;
+      }
+
+    .search-bar {
+      width: 70%;
+      border-radius: 30px;
+      background-color: rgb(116, 112, 112);
+    }
+    .login {
+      @include mixins.button();
+      border-radius: 18.5px;
+    }
+}
+
+input[type="checkbox"] {
+  width: 20px; /* Not necessary but provides better clarity */
+  height: 20px; /* Change the size of the checkbox */
+  transform: scale(1.3); /* Scales the checkbox */
+  margin-right: 1%; /* Adjusts spacing between checkbox and label */
+}
+
+/*.checkingMode{
+  size: 20;
+  width: 30px;
+  height: 30px;
+  margin-right: 60px;
+} */

@@ -1,0 +1,36 @@
+@use 'mixins';
+
+.news-card{
+    @include mixins.flex() ;
+    flex-direction: column;
+    width: 20%;
+    height: 25%;
+    margin-left: 1.5%;
+    margin-bottom: 1.5%;
+
+    .news-title{
+        width: 100%;
+        height: 30%;
+        @include mixins.button();
+
+        p {
+            color: rgb(211, 185, 185);
+            font-size: 100%;
+        }
+    }
+ 
+    .news-img{
+        width: 100%;
+        height: 60%;
+    }
+}
+
+.news-container {
+    @include mixins.flex() ;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-top: 4%;
+    margin-right: 2%;
+    padding: 2%;
+    background-color: rgba(66, 63, 63, 0.651);
+}
