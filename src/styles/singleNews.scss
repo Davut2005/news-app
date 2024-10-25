@@ -1,0 +1,31 @@
+@use '_mixins';
+
+.body{
+    @include mixins.flex();
+    flex-wrap: nowrap;
+
+    .details {
+        @include mixins.flex();
+        flex-direction: column;
+        width: 50%;
+        h1, h4 {
+            margin-bottom: 4%;
+        }
+        .h4 {
+            margin-top: 2%;
+        }
+        .bordering {
+            border: 10px rgb(45, 140, 184);
+        }
+    }
+
+    .img-box {
+        width: 50%;
+        margin-left: 2%;
+
+        .img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

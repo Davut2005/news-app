@@ -17,12 +17,13 @@
         @include mixins.button();
         border-radius: 22.5px;
       }
-
+    
     .search-bar {
       width: 70%;
       border-radius: 30px;
       background-color: rgb(116, 112, 112);
     }
+
     .login {
       @include mixins.button();
       border-radius: 18.5px;

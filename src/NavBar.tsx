@@ -1,13 +1,17 @@
-import './styles/newsNavBar.scss'
+import './styles/newsNavBar.scss';
+import './styles/_variables.scss'
 
 export interface NavProps {
   changeMode: () => void;
   changeIsSingleNews: () => void;
+  mode: boolean
 }
 
-const NavBar = ( { changeMode, changeIsSingleNews }: NavProps ) => {
+const NavBar = ( { changeMode, changeIsSingleNews, mode }: NavProps ) => {
+  const navBarClass = 'news-navbar ' + (mode ? 'grey' : 'white')
+
   return (
-    <div className="news-navbar">
+    <div className={navBarClass}>
       <div className="header"> 
         <button className='login' onClick={() => changeIsSingleNews()}>Latest News</button>
       </div>
